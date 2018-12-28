@@ -1,0 +1,16 @@
+version: '3'
+services:
+  couchdb:
+    image: couchdb:2.3.0
+    container_name: couchdb
+    volumes:
+      - couchdb-etc:/opt/couchdb/etc
+      - couchdb-data:/opt/couchdb/data
+    ports:
+      - "5984:5984"
+
+volumes:
+  couchdb-etc:
+    driver: local
+  couchdb-data:
+    driver: local
