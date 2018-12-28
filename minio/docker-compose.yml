@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  minio:
+    image: minio/minio
+    volumes:
+    - minio-data:/export
+    ports:
+    - "19000:9000"
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: password
+    command: server /export
+
+## By default this config uses default local driver,
+## For custom volumes replace with volume driver configuration.
+volumes:
+  minio-data:
+    driver: local
