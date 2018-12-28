@@ -2,6 +2,7 @@ version: '3'
 services:
   kibana:
     image: kibana:6.5.4
+    container_name: kibana
     links:
       - elasticsearch
     ports:
@@ -9,13 +10,14 @@ services:
 
   elasticsearch:
     image: elasticsearch:6.5.4
+    container_name: elasticsearch
     cap_add:
       - IPC_LOCK
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
+      - es-data:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
 
 volumes:
-  esdata1:
+  es-data:
     driver: local
