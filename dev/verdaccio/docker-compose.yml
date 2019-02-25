@@ -4,11 +4,11 @@ services:
   verdaccio:
     image: verdaccio/verdaccio:latest
     container_name: verdaccio
+    restart: always
     ports:
       - "4873:4873"
     volumes:
       - "verdaccio:/verdaccio"
-    restart: always
 
 volumes:
   verdaccio:
