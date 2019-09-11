@@ -1,4 +1,12 @@
-FROM kencho214/ansible:1.0.0
+FROM ubuntu:18.04
+
+RUN apt update && \
+  apt install python3.7 -y && \
+  apt install -y software-properties-common && \
+  apt install -y curl && \
+  add-apt-repository ppa:ansible/ansible && \
+  apt update && \
+  apt install -y ansible
 
 # Install IBM Cloud CLI
 RUN curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
